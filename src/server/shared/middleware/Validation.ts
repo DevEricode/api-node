@@ -1,8 +1,8 @@
 import { RequestHandler } from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { Schema, ValidationError } from 'yup';
+import { AnyObject, ObjectSchema, ValidationError } from 'yup';
 
-type TValidation = (field: 'body' | 'header' | 'params' | 'query', schema: Schema) => RequestHandler;
+type TValidation = <T extends AnyObject>(field: 'body' | 'header' | 'params' | 'query', schema: ObjectSchema<T>) => RequestHandler;
 
 export const validation : TValidation =  (field, schema) => async (req, res, next) => {
   console.log('Teste!');

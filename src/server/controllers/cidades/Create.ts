@@ -12,12 +12,12 @@ interface IFilter {
   filter?: string;
 }
 
-const bodyValidation: yup.Schema<ICidades> = yup.object().shape({
+const bodyValidation: yup.ObjectSchema<ICidades> = yup.object().shape({
   nome: yup.string().required().min(3),
   estado: yup.string().required().min(3),
 });
 
-const queryValidation: yup.Schema<IFilter> = yup.object().shape({
+const queryValidation: yup.ObjectSchema<IFilter> = yup.object().shape({
   filter: yup.string().required().min(3),
 });
 
