@@ -22,9 +22,9 @@ const queryValidation: yup.Schema<IFilter> = yup.object().shape({
 });
 
 
-export const createBodyValidator = validation(bodyValidation);
+export const createBodyValidator = validation('body', bodyValidation);
 
-export const createValidation = validation(queryValidation);
+export const createValidation = validation('query', queryValidation);
 
 
 export const create = async (req: Request<{}, {}, ICidades>, res: Response) => {

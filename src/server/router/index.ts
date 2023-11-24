@@ -8,9 +8,6 @@ router.get('/', (req, res) => {
   return res.status(StatusCodes.ACCEPTED).send('Olá dev!');
 });
 
-router.post('/cidades', 
-  CidadesController.createBodyValidator, 
-  CidadesController.createValidation, 
-  CidadesController.create);
+router.post('/cidades', CidadesController.createValidation, CidadesController.createBodyValidator, CidadesController.create);
 
 export { router }; 
