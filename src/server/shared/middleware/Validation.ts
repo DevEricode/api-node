@@ -14,15 +14,15 @@ export const validation : TValidation =  (field, schema) => async (req, res, nex
 
   } catch (err) {
     const yupError = err as ValidationError;
-    const erros: Record<string, string> = {};
+    const errors: Record<string, string> = {};
 
     yupError.inner.forEach((error) => {
       if(!error.path) return;
-      erros[error.path] = error.message;
+      errors[error.path] = error.message;
     });
 
     return res.status(StatusCodes.BAD_REQUEST).json({
-      erros: erros,
+      errors: errors,
     });
   }
 
