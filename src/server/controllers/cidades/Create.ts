@@ -8,18 +8,9 @@ interface ICidades {
   nome: string;
 }
 
-/*interface IFilter {
-  filter?: string;
-}
-*/
-
 const bodyValidation: yup.ObjectSchema<ICidades> = yup.object().shape({
   nome: yup.string().required().min(3),
 });
-
-/*const queryValidation: yup.ObjectSchema<IFilter> = yup.object().shape({
-  filter: yup.string().optional().min(3),
-});*/
 
 
 export const createBodyValidator = validation('body', bodyValidation);
