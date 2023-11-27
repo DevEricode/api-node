@@ -10,6 +10,9 @@ router.get('/', (req, res) => {
 
 router.get('/cidades', CidadesController.getAllValidator, 
   CidadesController.getAll);
+
+router.post('/cidades', CidadesController.createBodyValidator, 
+  CidadesController.create);
   
 router.get('/cidades/:id', CidadesController.GetByIdValidator, 
   CidadesController.getById);
@@ -18,7 +21,6 @@ router.put('/cidades/:id', CidadesController.UpdateParamsByIdValidator,
   CidadesController.UpdateBodyByIdValidator, 
   CidadesController.updateById);
 
-router.post('/cidades', CidadesController.createBodyValidator, 
-  CidadesController.create);
+router.delete('/cidades/:id',CidadesController.DeleteByIdValidator, CidadesController.deleteById);
 
 export { router }; 
