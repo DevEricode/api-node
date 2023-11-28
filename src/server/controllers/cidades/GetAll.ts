@@ -21,7 +21,14 @@ export const getAllValidator = validation('query', getAllValidation);
 
 
 export const getAll = async (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
-  console.log(req.query);
 
-  return res.status(StatusCodes.OK).send('Não implementado!');
+  res.setHeader('acess-control-expose-headers', 'x-total-count');
+  res.setHeader('x-total-count', 1);
+
+  return res.status(StatusCodes.OK).json([
+    {
+      id: 1,
+      nome: 'Rio de Janeiro',
+    }
+  ]);
 };
